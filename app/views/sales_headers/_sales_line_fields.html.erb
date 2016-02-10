@@ -1,0 +1,6 @@
+<fieldset>
+  <%= f.text_field :type %>
+  <%= f.collection_select :item_id, Item.where("type = ?",f.object.type).all, :id, :name %></br>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Eliminar", "#", class: "remove_fields" %></br>
+</fieldset>

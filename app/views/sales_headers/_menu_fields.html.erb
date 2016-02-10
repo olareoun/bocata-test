@@ -1,0 +1,10 @@
+<h3>Menu</h3><fieldset>
+
+  <%= f.fields_for :sales_lines do |builder| %>
+	<%= render 'sales_line_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Nuevo ingrediente", f, :sales_lines %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Eliminar Menu", "#", class: "remove_fields" %></br>
+
+</fieldset>

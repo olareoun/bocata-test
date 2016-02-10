@@ -1,0 +1,32 @@
+<%= form_for(@sales_header) do |f| %>
+  <% if @sales_header.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sales_header.errors.count, "error") %> prohibited this sales_header from being saved:</h2>
+
+      <ul>
+      <% @sales_header.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <%= f.fields_for :menus do |builder| %>
+    <%= render 'menu_fields', f: builder %>
+  <% end %>
+
+  <p><%= link_to_add_fields "Nuevo Menu", f, :menus %></p>
+  
+  </br>
+  </br>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

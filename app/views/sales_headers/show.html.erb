@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @sales_header.description %>
+</p>
+
+<div class="sales_header">
+	<% @sales_header.menus.each do |menu| %>
+	  <h3>Menu</h3>
+		<ul>
+			<% menu.sales_lines.each do |sales_line| %>
+			  <li><%= sales_line.type %> - <%= Item.find(sales_line.item_id).name %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
+
+<%= link_to 'Edit', edit_sales_header_path(@sales_header) %> |
+<%= link_to 'Back', sales_headers_path %>

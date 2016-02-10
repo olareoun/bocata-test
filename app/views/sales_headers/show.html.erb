@@ -10,7 +10,7 @@
 	  <h3>Menu</h3>
 		<ul>
 			<% menu.sales_lines.each do |sales_line| %>
-			  <li><%= sales_line.type %> - <%= Item.find(sales_line.item_id).name %></li>
+			  <li><%= sales_line.type %> - <%= sales_line.item.name %> </li>
 			<% end %>
 		</ul>
 	<% end %>
